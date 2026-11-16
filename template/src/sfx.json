@@ -1,0 +1,7 @@
+{
+  "kick":     {"kind": "kick"},
+  "tick":     {"kind": "tick"},
+  "bell-1":   {"kind": "bell", "degree": 1, "octave": 5},
+  "pluck-5":  {"kind": "pluck", "degree": 5, "octave": 5},
+  "shatter":  {"kind": "bell", "degree": 3, "octave": 6, "duration": 0.9}
+}
