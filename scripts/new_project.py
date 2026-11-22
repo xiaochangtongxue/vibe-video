@@ -2,7 +2,8 @@
 """Create a Remotion project from the template, with music, beats.json and SFX ready.
 
 Audio whose SHA-256 matches a track listed in assets/MUSIC.md gets its
-precomputed beats; other audio is analyzed with analyze.py.
+precomputed beats; other audio is analyzed with analyze.py. --audio may be
+omitted when assets/we-never.mp3 is present (the repo ships no audio).
 """
 import argparse
 import json
@@ -14,13 +15,15 @@ from pathlib import Path
 from analyze import sha256
 
 SKILL = Path(__file__).resolve().parent.parent
+DEFAULT_AUDIO = SKILL / 'assets' / 'we-never.mp3'
 SIZES = {'16:9': (1920, 1080), '9:16': (1080, 1920)}
 
 
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument('dir', type=Path)
-    p.add_argument('--audio', type=Path, required=True)
+    has_default = DEFAULT_AUDIO.is_file()
+    p.add_argument('--audio', type=Path, default=DEFAULT_AUDIO if has_default else None, required=not has_default)
     p.add_argument('--ratio', choices=sorted(SIZES), default='16:9')
     p.add_argument('--fps', type=int, default=30)
     a = p.parse_args()

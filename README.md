@@ -16,7 +16,7 @@ git clone https://github.com/xiaochangtongxue/vibe-video ~/.claude/skills/vibe-v
 
 ## 音乐
 
-仓库不附带音乐文件。[assets/MUSIC.md](assets/MUSIC.md) 里四首曲目的拍点已经预先算好：你提供的音频和记录的 SHA-256 一致时直接使用，其他音乐会自动分析拍点。
+仓库不附带音乐文件。[assets/MUSIC.md](assets/MUSIC.md) 里五首曲目的拍点已经预先算好：你提供的音频和记录的 SHA-256 一致时直接使用，其他音乐会自动分析拍点。把这些音频按记录的文件名放进 `assets/`，就能当内置曲目直接选用。
 
 ## 许可
 
